@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversión de temperatura</title>
+</head>
+<body>
+    <h1>Conversión de Temperatura</h1>
+    <button onclick="solicitarTemperatura()">Ingresa la temperatura</button>
+    <div id="resultado"></div>
+
+    <script>
+        function solicitarTemperatura() {
+            let celsius;
+
+            while (true) {
+                let entradaTemp = prompt("Ingresa la temperatura en grados Celsius");
+                celsius = parseFloat(entradaTemp); 
+
+                if (!isNaN(celsius)) {
+                    break;
+                } else {
+                    alert("Por favor, ingresa un número válido");
+                }
+            }
+
+            const fahrenheit = (celsius * 9/5) + 32;
+            const kelvin = celsius + 273.15;
+
+            console.log("Grados Fahrenheit: " + fahrenheit);
+            console.log("Grados Kelvin: " + kelvin);
+
+            const resultado = document.getElementById("resultado");
+            resultado.innerHTML = `
+                <p>Grados Fahrenheit: ${fahrenheit}</p>
+                <p>Grados Kelvin: ${kelvin}</p>
+            `;            
+        }
+    </script>
+
+</body>
+</html>
